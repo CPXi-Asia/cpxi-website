@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
+
+export const runtime = "nodejs"; // nodemailer requires Node runtime, not Edge.
 
 const TO_EMAIL = "hello@cpxi-asia.com";
-const FROM_EMAIL = "CPXi Asia Website <onboarding@resend.dev>"; // TODO: switch to a verified sender domain (e.g. noreply@cpxi-asia.com) once the Resend domain is set up.
 
 const BUDGET_OPTIONS = new Set([
   "Under $10k",
@@ -41,11 +42,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid budget option." }, { status: 400 });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
+
+  if (!smtpUser || !smtpPass) {
     // Graceful no-op: log to server, succeed to client.
-    // Drop in RESEND_API_KEY via `vercel env add` to enable delivery.
-    console.warn("[contact] RESEND_API_KEY missing — lead captured but not emailed:", {
+    // Set SMTP_USER + SMTP_PASS via `vercel env add` to enable delivery.
+    console.warn("[contact] SMTP_USER/SMTP_PASS missing — lead captured but not emailed:", {
       name,
       company,
       email,
@@ -54,22 +57,30 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, delivered: false });
   }
 
-  const resend = new Resend(apiKey);
-  const { error } = await resend.emails.send({
-    from: FROM_EMAIL,
-    to: TO_EMAIL,
-    replyTo: email,
-    subject: `New website lead — ${company} (${budget})`,
-    text: [
-      `Name:    ${name}`,
-      `Company: ${company}`,
-      `Email:   ${email}`,
-      `Budget:  ${budget}`,
-    ].join("\n"),
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: { user: smtpUser, pass: smtpPass },
   });
 
-  if (error) {
-    console.error("[contact] Resend error:", error);
+  try {
+    await transporter.sendMail({
+      from: `"CPXi Asia Website" <${smtpUser}>`,
+      to: TO_EMAIL,
+      replyTo: `"${name}" <${email}>`,
+      subject: `New website lead — ${company} (${budget})`,
+      text: [
+        `Name:    ${name}`,
+        `Company: ${company}`,
+        `Email:   ${email}`,
+        `Budget:  ${budget}`,
+        ``,
+        `(Reply to this email to respond directly to ${name}.)`,
+      ].join("\n"),
+    });
+  } catch (err) {
+    console.error("[contact] SMTP send failed:", err);
     return NextResponse.json({ error: "Email delivery failed." }, { status: 502 });
   }
 
