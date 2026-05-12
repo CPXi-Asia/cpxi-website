@@ -22,10 +22,14 @@ export function Hero() {
             Digital Agency, Singapore
           </span>
 
-          <h1 className="mt-8 text-5xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-8xl">
-            Vendor-Agnostic.
+          {/* Non-breaking hyphens (U+2011) keep each line as an unbreakable unit
+              so the browser can't split "Vendor‑Agnostic" across two lines at
+              the hyphen on narrow columns. Font sizes tuned one step down so
+              the unbreakable lines still fit at all breakpoints. */}
+          <h1 className="mt-8 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
+            Vendor‑Agnostic.
             <br />
-            <span className="text-accent">Outcome-Obsessed.</span>
+            <span className="text-accent">Outcome‑Obsessed.</span>
           </h1>
 
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
