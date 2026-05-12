@@ -72,7 +72,7 @@ body {
   --marquee-gap: 4rem;
   gap: var(--marquee-gap);
   width: max-content;
-  animation: marquee-scroll 90s linear infinite;
+  animation: marquee-scroll 115s linear infinite;
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
