@@ -35,22 +35,19 @@ body {
 }
 
 /* Client logo marquee — slow infinite scroll, pauses on hover.
-   Item spacing uses margin-right (not flex gap) so total track width is
-   an exact multiple of one item-unit, making translate(-50%) land on a
-   pixel-perfect loop boundary. With flex gap, the boundary between
-   duplicated halves is one gap-width off, producing a tiny snap each
-   loop. margin-right makes each item's "unit" = img.width + margin,
-   so 2N items = perfectly bisectable. */
+   Translates by (-50% - gap/2) so the loop wraps exactly aligned: when
+   gap is non-zero, half the track width is gap/2 short of one full
+   item-unit, so we shift by that extra half-gap to land on a true
+   pixel-perfect boundary. Same pattern used on cryptobriefing.com/advertising. */
 @keyframes marquee-scroll {
   from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
+  to   { transform: translate3d(calc(-50% - var(--marquee-gap) / 2), 0, 0); }
 }
 .marquee {
   position: relative;
   overflow: hidden;
   contain: layout paint;
 }
-/* Edge fade via absolute-positioned overlays */
 .marquee::before,
 .marquee::after {
   content: "";
@@ -72,6 +69,8 @@ body {
 .marquee-track {
   display: flex;
   align-items: center;
+  --marquee-gap: 4rem;
+  gap: var(--marquee-gap);
   width: max-content;
   animation: marquee-scroll 90s linear infinite;
   will-change: transform;
@@ -84,7 +83,6 @@ body {
 .marquee img {
   height: 2.5rem;
   width: auto;
-  margin-right: 4rem;
   opacity: 0.55;
   transition: opacity 200ms ease;
   flex-shrink: 0;
@@ -93,13 +91,11 @@ body {
   opacity: 1;
 }
 @media (min-width: 640px) {
-  .marquee img {
-    height: 3rem;
-    margin-right: 5rem;
-  }
+  .marquee img { height: 3rem; }
+  .marquee-track { --marquee-gap: 5rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
+  .marquee-track { animation: none; flex-wrap: wrap; justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
