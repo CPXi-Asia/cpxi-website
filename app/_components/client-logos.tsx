@@ -1,7 +1,7 @@
-// 31 client logos extracted from the master intro deck.
-// Filenames are sequential (client-01.png .. client-31.png) — they're
+// Client logos extracted from the master intro deck, pre-baked as white
+// silhouettes on transparent background. Filenames are sequential — they're
 // presented as a single anonymous marquee; no per-logo metadata needed.
-const LOGOS = Array.from({ length: 31 }, (_, i) => `/clients/client-${String(i + 1).padStart(2, "0")}.png`);
+const LOGOS = Array.from({ length: 27 }, (_, i) => `/clients/client-${String(i + 1).padStart(2, "0")}.png`);
 
 export function ClientLogos() {
   return (
