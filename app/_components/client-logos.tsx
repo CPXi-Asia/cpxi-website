@@ -1,7 +1,38 @@
-// Client logos extracted from the master intro deck, pre-baked as white
-// silhouettes on transparent background. Filenames are sequential — they're
-// presented as a single anonymous marquee; no per-logo metadata needed.
-const LOGOS = Array.from({ length: 27 }, (_, i) => `/clients/client-${String(i + 1).padStart(2, "0")}.png`);
+// 29 client logos sourced from official brand assets (Wikimedia Commons,
+// brand press kits) and baked to white silhouettes on transparent
+// backgrounds. Order interleaves categories so the marquee doesn't show
+// all finance logos in a row.
+const LOGOS = [
+  "tiger-brokers",
+  "canon",
+  "ho-bee-land",
+  "volvo",
+  "cgs",
+  "kate-spade",
+  "yanlord",
+  "polestar",
+  "unionpay",
+  "anessa",
+  "cdl",
+  "spa-esprit",
+  "webull",
+  "cortina-watch",
+  "sc-global",
+  "wearnes",
+  "hl-bank",
+  "puma",
+  "guocoland",
+  "switzerland",
+  "bank-of-china",
+  "skechers",
+  "tsubaki",
+  "starlux",
+  "longbridge",
+  "grohe",
+  "fino",
+  "american-standard",
+  "yeos",
+];
 
 export function ClientLogos() {
   return (
@@ -16,9 +47,9 @@ export function ClientLogos() {
       <div className="marquee" aria-hidden="true">
         <div className="marquee-track">
           {/* Duplicated for seamless looping: track translates from 0 to -50% */}
-          {[...LOGOS, ...LOGOS].map((src, i) => (
+          {[...LOGOS, ...LOGOS].map((slug, i) => (
             // eslint-disable-next-line @next/next/no-img-element
-            <img key={i} src={src} alt="" loading="lazy" decoding="async" />
+            <img key={i} src={`/clients/${slug}.png`} alt="" loading="lazy" decoding="async" />
           ))}
         </div>
       </div>
