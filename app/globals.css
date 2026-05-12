@@ -40,9 +40,28 @@ body {
   to   { transform: translate3d(-50%, 0, 0); }
 }
 .marquee {
+  position: relative;
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+/* Edge fade via absolute-positioned overlays — keeps the marquee track free of
+   mask-image (which triggers per-frame paint and was causing jank). */
+.marquee::before,
+.marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6rem;
+  pointer-events: none;
+  z-index: 1;
+}
+.marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--background), transparent);
+}
+.marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--background), transparent);
 }
 .marquee-track {
   display: flex;
