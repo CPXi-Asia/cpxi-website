@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { ContactForm } from "./contact-form";
+import { Logo } from "./logo";
 
 // TODO(Reuben): replace with real numbers from credential bar action item.
 const CREDENTIALS = [
@@ -12,14 +12,7 @@ export function Hero() {
   return (
     <section className="relative min-h-screen px-6 pt-8 pb-12 sm:px-10 lg:px-16">
       <header className="mb-16 lg:mb-24">
-        <Image
-          src="/cpxi-logo.png"
-          alt="CPXi Asia"
-          width={160}
-          height={40}
-          priority
-          className="h-8 w-auto sm:h-10"
-        />
+        <Logo className="h-8 w-auto sm:h-10 text-foreground" />
       </header>
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">

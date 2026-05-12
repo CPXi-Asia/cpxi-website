@@ -11,7 +11,10 @@ export const metadata: Metadata = {
   title: "CPXi Asia — Vendor-Agnostic. Outcome-Obsessed.",
   description:
     "Digital agency in Singapore. Every other agency has a preferred vendor. We have a preferred result.",
-  icons: { icon: "/cpxi-logo.png" },
+  icons: {
+    icon: "/favicon-32x32.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
