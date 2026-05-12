@@ -49,7 +49,7 @@ export function ClientLogos() {
           {/* Duplicated for seamless looping: track translates from 0 to -50% */}
           {[...LOGOS, ...LOGOS].map((slug, i) => (
             // eslint-disable-next-line @next/next/no-img-element
-            <img key={i} src={`/clients/${slug}.png`} alt="" loading="lazy" decoding="async" />
+            <img key={i} src={`/clients/${slug}.png`} alt="" decoding="async" />
           ))}
         </div>
       </div>

@@ -34,7 +34,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Client logo marquee — slow infinite scroll, pauses on hover */
+/* Client logo marquee — slow infinite scroll, pauses on hover.
+   Item spacing uses margin-right (not flex gap) so total track width is
+   an exact multiple of one item-unit, making translate(-50%) land on a
+   pixel-perfect loop boundary. With flex gap, the boundary between
+   duplicated halves is one gap-width off, producing a tiny snap each
+   loop. margin-right makes each item's "unit" = img.width + margin,
+   so 2N items = perfectly bisectable. */
 @keyframes marquee-scroll {
   from { transform: translate3d(0, 0, 0); }
   to   { transform: translate3d(-50%, 0, 0); }
@@ -42,9 +48,9 @@ body {
 .marquee {
   position: relative;
   overflow: hidden;
+  contain: layout paint;
 }
-/* Edge fade via absolute-positioned overlays — keeps the marquee track free of
-   mask-image (which triggers per-frame paint and was causing jank). */
+/* Edge fade via absolute-positioned overlays */
 .marquee::before,
 .marquee::after {
   content: "";
@@ -66,10 +72,8 @@ body {
 .marquee-track {
   display: flex;
   align-items: center;
-  gap: 4rem;
   width: max-content;
-  animation: marquee-scroll 50s linear infinite;
-  /* Hint the compositor: keeps the animation on the GPU layer, no per-frame paint. */
+  animation: marquee-scroll 90s linear infinite;
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -80,17 +84,22 @@ body {
 .marquee img {
   height: 2.5rem;
   width: auto;
+  margin-right: 4rem;
   opacity: 0.55;
   transition: opacity 200ms ease;
   flex-shrink: 0;
-  /* Logos are pre-baked white silhouettes — no CSS filter needed. */
 }
 .marquee img:hover {
   opacity: 1;
 }
 @media (min-width: 640px) {
-  .marquee img { height: 3rem; }
-  .marquee-track { gap: 5rem; }
+  .marquee img {
+    height: 3rem;
+    margin-right: 5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
