@@ -2,13 +2,6 @@
 
 import { useState } from "react";
 
-const BUDGET_OPTIONS = [
-  "Under $10k",
-  "$10k–$50k",
-  "$50k–$150k",
-  "$150k+",
-] as const;
-
 type Status = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm({ formId }: { formId: string }) {
@@ -25,7 +18,6 @@ export function ContactForm({ formId }: { formId: string }) {
       name: String(formData.get("name") ?? "").trim(),
       company: String(formData.get("company") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
-      budget: String(formData.get("budget") ?? "").trim(),
     };
 
     try {
@@ -88,29 +80,6 @@ export function ContactForm({ formId }: { formId: string }) {
           autoComplete="email"
           className={inputClass}
         />
-      </Field>
-
-      <Field id={`${formId}-budget`} name="budget" label="Monthly marketing budget" required>
-        <select
-          id={`${formId}-budget`}
-          name="budget"
-          required
-          defaultValue=""
-          className={`${inputClass} appearance-none bg-[length:0.65em] bg-[right_1rem_center] bg-no-repeat pr-10`}
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%239ca3af'><path d='M4 6l4 4 4-4'/></svg>\")",
-          }}
-        >
-          <option value="" disabled>
-            Select range
-          </option>
-          {BUDGET_OPTIONS.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
       </Field>
 
       <button

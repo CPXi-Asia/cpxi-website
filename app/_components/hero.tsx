@@ -1,11 +1,10 @@
 import { ContactForm } from "./contact-form";
 import { Logo } from "./logo";
 
-// TODO(Reuben): replace with real numbers from credential bar action item.
 const CREDENTIALS = [
-  { value: "$XXX+", label: "Managed spend" },
-  { value: "XX+", label: "Active clients" },
-  { value: "XX", label: "Years in market" },
+  { value: "2014", label: "Founded in Singapore" },
+  { value: "20+ years", label: "Digital media heritage (US, via Digital Remedy)" },
+  { value: "3 markets", label: "Across Asia" },
 ] as const;
 
 export function Hero() {
@@ -17,24 +16,17 @@ export function Hero() {
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
         <div className="flex flex-col">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-accent">
-            <span className="size-1.5 rounded-full bg-accent" aria-hidden />
-            Digital Agency, Singapore
-          </span>
-
-          {/* Non-breaking hyphens (U+2011) keep each line as an unbreakable unit
-              so the browser can't split "Vendor‑Agnostic" across two lines at
-              the hyphen on narrow columns. Font sizes tuned one step down so
-              the unbreakable lines still fit at all breakpoints. */}
-          <h1 className="mt-8 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
-            Vendor‑Agnostic.
-            <br />
-            <span className="text-accent">Outcome‑Obsessed.</span>
+          <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Performance marketing and technology{" "}
+            <span className="text-accent">for brands across Asia.</span>
           </h1>
 
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
-            Every other agency has a preferred vendor. We have a preferred
-            result. Outcomes over outputs — always.
+            A Singapore-headquartered digital agency with offices in Indonesia
+            and Malaysia, founded in 2014. Our digital media roots go back more
+            than 20 years, through Digital Remedy in New York. We run
+            performance marketing and marketing technology for brands across the
+            region.
           </p>
 
           <dl className="mt-16 grid grid-cols-3 gap-6 border-t border-surface-border pt-8 lg:mt-auto lg:pt-10">

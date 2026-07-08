@@ -83,12 +83,15 @@ body {
 .marquee img {
   height: 2.5rem;
   width: auto;
-  opacity: 0.55;
-  transition: opacity 200ms ease;
+  /* White silhouettes dimmed to a muted grey at rest; full white on hover. */
+  opacity: 0.7;
+  filter: brightness(0.55);
+  transition: opacity 200ms ease, filter 200ms ease;
   flex-shrink: 0;
 }
 .marquee img:hover {
   opacity: 1;
+  filter: brightness(1);
 }
 @media (min-width: 640px) {
   .marquee img { height: 3rem; }

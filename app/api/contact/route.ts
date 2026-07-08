@@ -5,18 +5,10 @@ export const runtime = "nodejs"; // nodemailer requires Node runtime, not Edge.
 
 const TO_EMAIL = "hello@cpxi-asia.com";
 
-const BUDGET_OPTIONS = new Set([
-  "Under $10k",
-  "$10k–$50k",
-  "$50k–$150k",
-  "$150k+",
-]);
-
 type Payload = {
   name?: string;
   company?: string;
   email?: string;
-  budget?: string;
 };
 
 export async function POST(request: Request) {
@@ -30,16 +22,12 @@ export async function POST(request: Request) {
   const name = body.name?.trim() ?? "";
   const company = body.company?.trim() ?? "";
   const email = body.email?.trim() ?? "";
-  const budget = body.budget?.trim() ?? "";
 
-  if (!name || !company || !email || !budget) {
+  if (!name || !company || !email) {
     return NextResponse.json({ error: "All fields are required." }, { status: 400 });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json({ error: "Invalid email address." }, { status: 400 });
-  }
-  if (!BUDGET_OPTIONS.has(budget)) {
-    return NextResponse.json({ error: "Invalid budget option." }, { status: 400 });
   }
 
   const smtpUser = process.env.SMTP_USER;
@@ -52,7 +40,6 @@ export async function POST(request: Request) {
       name,
       company,
       email,
-      budget,
     });
     return NextResponse.json({ ok: true, delivered: false });
   }
@@ -69,12 +56,11 @@ export async function POST(request: Request) {
       from: `"CPXi Asia Website" <${smtpUser}>`,
       to: TO_EMAIL,
       replyTo: `"${name}" <${email}>`,
-      subject: `New website lead — ${company} (${budget})`,
+      subject: `New website lead — ${company}`,
       text: [
         `Name:    ${name}`,
         `Company: ${company}`,
         `Email:   ${email}`,
-        `Budget:  ${budget}`,
         ``,
         `(Reply to this email to respond directly to ${name}.)`,
       ].join("\n"),

@@ -59,7 +59,6 @@ export function Contact() {
 
       <footer className="mx-auto mt-24 flex max-w-7xl flex-col items-start justify-between gap-3 border-t border-surface-border pt-8 text-xs text-muted sm:flex-row sm:items-center">
         <p>© {new Date().getFullYear()} CPXi Asia. All rights reserved.</p>
-        <p>Centralised Performance Media Group</p>
       </footer>
     </section>
   );

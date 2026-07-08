@@ -8,9 +8,9 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "CPXi Asia — Vendor-Agnostic. Outcome-Obsessed.",
+  title: "CPXi Asia — Performance marketing and technology for brands across Asia",
   description:
-    "Digital agency in Singapore. Every other agency has a preferred vendor. We have a preferred result.",
+    "A Singapore-headquartered digital agency with offices in Indonesia and Malaysia, founded in 2014. Performance marketing and marketing technology for brands across Asia.",
   icons: {
     icon: "/favicon-32x32.png",
     apple: "/apple-touch-icon.png",
