@@ -18,7 +18,7 @@ export function Services() {
   return (
     <section className="border-t border-surface-border px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl text-center">
-        <span className="text-xs font-medium uppercase tracking-wider text-muted">
+        <span className="text-sm font-medium uppercase tracking-wider text-muted sm:text-base">
           What We Do
         </span>
         <h2 className="mx-auto mt-3 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
