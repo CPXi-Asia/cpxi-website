@@ -18,6 +18,7 @@ export function ContactForm({ formId }: { formId: string }) {
       name: String(formData.get("name") ?? "").trim(),
       company: String(formData.get("company") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
+      message: String(formData.get("message") ?? "").trim(),
     };
 
     try {
@@ -40,8 +41,8 @@ export function ContactForm({ formId }: { formId: string }) {
 
   if (status === "success") {
     return (
-      <div className="rounded-lg border border-surface-border bg-surface p-8 text-center">
-        <p className="text-lg font-medium text-foreground">Thanks — we got it.</p>
+      <div className="rounded-xl border border-surface-border bg-surface p-8 text-center">
+        <p className="text-lg font-medium text-foreground">Thanks, we got it.</p>
         <p className="mt-2 text-sm text-muted">We&rsquo;ll respond within one business day.</p>
       </div>
     );
@@ -71,7 +72,7 @@ export function ContactForm({ formId }: { formId: string }) {
         />
       </Field>
 
-      <Field id={`${formId}-email`} name="email" label="Work email" required>
+      <Field id={`${formId}-email`} name="email" label="Email" required>
         <input
           id={`${formId}-email`}
           name="email"
@@ -82,10 +83,20 @@ export function ContactForm({ formId }: { formId: string }) {
         />
       </Field>
 
+      <Field id={`${formId}-message`} name="message" label="Message" required>
+        <textarea
+          id={`${formId}-message`}
+          name="message"
+          required
+          rows={4}
+          className={`${inputClass} resize-y`}
+        />
+      </Field>
+
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full rounded-md bg-accent px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-accent-hover disabled:opacity-60"
+        className="w-full rounded-md bg-accent-strong px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-accent-strong-hover disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Send message"}
       </button>

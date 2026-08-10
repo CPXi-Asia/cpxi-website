@@ -1,32 +1,34 @@
-// TODO(Reuben): replace placeholder names with the actual 7 service names
-// and confirm the Growth/Technology split. Brief says "two columns",
-// "navy/teal colour split to indicate Growth vs Technology practice".
+// The 7 service lines and Growth/Technology split per CPMG-Positioning-v3.pdf
+// (Reuben's CPMG folder) — the same doc behind the navy/teal practice split.
 const GROWTH = [
-  "Performance Media",
-  "Programmatic",
-  "Paid Search",
-  "Paid Social",
+  "Performance Marketing",
+  "Content & Creative",
+  "Brand & Identity",
 ] as const;
 
 const TECHNOLOGY = [
-  "Analytics & Measurement",
-  "Tagging & Tracking",
-  "MarTech Integration",
+  "Marketing Technology",
+  "Web & Product",
+  "Data & Intelligence",
+  "AI Strategy & Consulting",
 ] as const;
 
 export function Services() {
   return (
     <section className="border-t border-surface-border px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl text-center">
         <span className="text-xs font-medium uppercase tracking-wider text-muted">
           What We Do
         </span>
-        {/* TODO(Reuben): one-sentence positioning line goes here. */}
-        <h2 className="mt-3 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-          Two practices, one operating standard.
+        <h2 className="mx-auto mt-3 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          We don&rsquo;t offer services. We engineer outcomes.
         </h2>
+        <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+          Across two practices, AI is how we close the gap between where you
+          are and where you need to be.
+        </p>
 
-        <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:gap-20">
+        <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-12 text-left md:grid-cols-2 lg:gap-20">
           <ServiceColumn
             label="Growth"
             color="accent"

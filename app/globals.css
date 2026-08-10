@@ -6,7 +6,12 @@
   --muted: #9ca3af;
   --accent: #0d9488;
   --accent-hover: #14b8a6;
-  --navy: #1e40af;
+  /* CTA fills: darker teal so white label passes WCAG AA (5.5:1 vs 3.7:1 on --accent). */
+  --accent-strong: #0f766e;
+  --accent-strong-hover: #115e59;
+  /* Technology-practice blue, brightened from brand navy #1e40af which only
+     hits 2.2:1 on this background — #3b82f6 measures 5.2:1. */
+  --navy: #3b82f6;
   --surface: #11172a;
   --surface-border: rgba(255, 255, 255, 0.08);
 }
@@ -17,6 +22,8 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-strong-hover: var(--accent-strong-hover);
   --color-navy: var(--navy);
   --color-surface: var(--surface);
   --color-surface-border: var(--surface-border);
@@ -34,72 +41,3 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Client logo marquee — slow infinite scroll, pauses on hover.
-   Translates by (-50% - gap/2) so the loop wraps exactly aligned: when
-   gap is non-zero, half the track width is gap/2 short of one full
-   item-unit, so we shift by that extra half-gap to land on a true
-   pixel-perfect boundary. Same pattern used on cryptobriefing.com/advertising. */
-@keyframes marquee-scroll {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(calc(-50% - var(--marquee-gap) / 2), 0, 0); }
-}
-.marquee {
-  position: relative;
-  overflow: hidden;
-  contain: layout paint;
-}
-.marquee::before,
-.marquee::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 6rem;
-  pointer-events: none;
-  z-index: 1;
-}
-.marquee::before {
-  left: 0;
-  background: linear-gradient(to right, var(--background), transparent);
-}
-.marquee::after {
-  right: 0;
-  background: linear-gradient(to left, var(--background), transparent);
-}
-.marquee-track {
-  display: flex;
-  align-items: center;
-  --marquee-gap: 4rem;
-  gap: var(--marquee-gap);
-  width: max-content;
-  animation: marquee-scroll 115s linear infinite;
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-.marquee img {
-  height: 2.5rem;
-  width: auto;
-  /* White silhouettes dimmed to a muted grey at rest; full white on hover. */
-  opacity: 0.7;
-  filter: brightness(0.55);
-  transition: opacity 200ms ease, filter 200ms ease;
-  flex-shrink: 0;
-}
-.marquee img:hover {
-  opacity: 1;
-  filter: brightness(1);
-}
-@media (min-width: 640px) {
-  .marquee img { height: 3rem; }
-  .marquee-track { --marquee-gap: 5rem; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; flex-wrap: wrap; justify-content: center; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
-}

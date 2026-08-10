@@ -9,6 +9,7 @@ type Payload = {
   name?: string;
   company?: string;
   email?: string;
+  message?: string;
 };
 
 export async function POST(request: Request) {
@@ -22,8 +23,9 @@ export async function POST(request: Request) {
   const name = body.name?.trim() ?? "";
   const company = body.company?.trim() ?? "";
   const email = body.email?.trim() ?? "";
+  const message = body.message?.trim() ?? "";
 
-  if (!name || !company || !email) {
+  if (!name || !company || !email || !message) {
     return NextResponse.json({ error: "All fields are required." }, { status: 400 });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -40,6 +42,7 @@ export async function POST(request: Request) {
       name,
       company,
       email,
+      message,
     });
     return NextResponse.json({ ok: true, delivered: false });
   }
@@ -56,11 +59,14 @@ export async function POST(request: Request) {
       from: `"CPXi Asia Website" <${smtpUser}>`,
       to: TO_EMAIL,
       replyTo: `"${name}" <${email}>`,
-      subject: `New website lead — ${company}`,
+      subject: `New website lead: ${company}`,
       text: [
         `Name:    ${name}`,
         `Company: ${company}`,
         `Email:   ${email}`,
+        ``,
+        `Message:`,
+        message,
         ``,
         `(Reply to this email to respond directly to ${name}.)`,
       ].join("\n"),

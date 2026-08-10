@@ -8,15 +8,9 @@ export function Contact() {
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
         <div className="flex flex-col">
-          <span className="text-xs font-medium uppercase tracking-wider text-muted">
-            Contact
-          </span>
-          <h2 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            Tell us what you&rsquo;re trying to move.
+          <h2 className="text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            Get in touch.
           </h2>
-          <p className="mt-6 max-w-md text-base leading-relaxed text-muted sm:text-lg">
-            We&rsquo;ll respond within one business day.
-          </p>
 
           <dl className="mt-12 space-y-6">
             <div>
