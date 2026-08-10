@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -32,6 +33,9 @@ export function ContactForm({ formId }: { formId: string }) {
         throw new Error(data?.error ?? `Request failed (${res.status})`);
       }
       setStatus("success");
+      // Lead conversion signal — map to a GA4 key event + Google Ads
+      // conversion in the GTM UI (trigger: custom event "contact_form_submit").
+      sendGTMEvent({ event: "contact_form_submit", form_id: formId });
       event.currentTarget.reset();
     } catch (err) {
       setStatus("error");
