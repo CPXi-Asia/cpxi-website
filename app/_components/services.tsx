@@ -2,6 +2,7 @@
 // (Reuben's CPMG folder) — the same doc behind the navy/teal practice split.
 const GROWTH = [
   "Performance Marketing",
+  "Search & Social",
   "Content & Creative",
   "Brand & Identity",
 ] as const;
@@ -21,13 +22,8 @@ export function Services() {
           What We Do
         </span>
         <h2 className="mx-auto mt-3 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-          We don&rsquo;t offer services. We engineer outcomes.
+          We don&rsquo;t just offer services. We engineer outcomes.
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-          Across two practices, AI is how we close the gap between where you
-          are and where you need to be.
-        </p>
-
         <div className="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-12 text-left md:grid-cols-2 lg:gap-20">
           <ServiceColumn
             label="Growth"
@@ -61,7 +57,7 @@ function ServiceColumn({
     <div>
       <div className="flex items-center gap-3">
         <span className={`h-px w-8 ${ruleClass}`} aria-hidden />
-        <span className={`text-xs font-semibold uppercase tracking-widest ${accentClass}`}>
+        <span className={`text-lg font-semibold uppercase tracking-wide sm:text-xl ${accentClass}`}>
           {label}
         </span>
       </div>

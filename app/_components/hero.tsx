@@ -15,8 +15,9 @@ export function Hero() {
         </h1>
 
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
-          Singapore-headquartered, with offices in Indonesia and Malaysia.
-          Our roots go back 20+ years through Digital Remedy in New York.
+          We are an independent Singapore-headquartered agency, with offices
+          in Indonesia and Malaysia, and with over 14 years of deep operating
+          experience in the region.
         </p>
 
         <a
