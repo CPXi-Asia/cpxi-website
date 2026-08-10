@@ -16,8 +16,9 @@ Marketing site for **www.cpxi-asia.com** (replacing the legacy CodeIgniter site 
 
 | Environment | URL | Notes |
 |---|---|---|
-| Production (Vercel) | https://cpxi-website.vercel.app | Stable Vercel alias — current "staging" URL during build-out |
-| Live (legacy) | https://www.cpxi-asia.com | Untouched. CodeIgniter on HawkHost LiteSpeed. DNS cutover is a separate later step. |
+| **Production (live)** | https://www.cpxi-asia.com | **CUT OVER 2026-08-09.** DNS on HawkHost nameservers points at Vercel (apex A `76.76.21.21`, www CNAME `cname.vercel-dns.com`). |
+| Production (alias) | https://cpxi-website.vercel.app | Same deployment, stable Vercel alias |
+| Legacy (parked) | — | Old CodeIgniter site files remain untouched on HawkHost (`198.252.100.133`). Rollback = revert the two DNS records in cPanel Zone Editor. `platform.`/`report.`/`thrive.` subdomains untouched. Email MX (Google) untouched. |
 
 ## Local dev
 
@@ -48,9 +49,10 @@ vercel deploy --prod    # production deploy
 
 ## Open
 
-- [ ] **DNS cutover plan** — when content/design are ready, point `www.cpxi-asia.com` (currently HawkHost A record) at Vercel via CNAME `cname.vercel-dns.com`. Don't touch `platform.`, `report.`, or `thrive.` subdomains.
-- [ ] **Analytics** — current site has GTM `GTM-WKHW43`, Google Ads `AW-710811234`, Hotjar `3659625`. Decide whether to reuse or start fresh when content lands.
-- [ ] **Design + content** — held off until John provides direction.
+- [x] **DNS cutover** — DONE 2026-08-09 via cPanel API (zone serial 2026081000). Contact form verified end-to-end on the live domain (`delivered: true` to hello@cpxi-asia.com).
+- [ ] **Analytics** — legacy site had GTM `GTM-WKHW43`, Google Ads `AW-710811234`, Hotjar `3659625`. New site has NONE — decide reuse vs fresh, now more urgent since the domain is live.
+- [ ] **Legacy URL 404s** — old subpages (`/page/career`, `/page/privacy`, blog) 404 on the one-pager. Add redirects or a minimal privacy page if anything links to them.
+- [ ] **Reuben confirmations** — platform partner list (TikTok/Spotify tiers? Xiaohongshu?), official AOTY 2025 winner badge kit, GuocoLand vector art (current color source too low-res, white-only for now).
 
 ## Environment variables
 
