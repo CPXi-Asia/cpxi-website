@@ -89,10 +89,14 @@ export function Partners() {
           Business Partner (Meta's current program branding, from Reuben's
           supplied image). Verification links carried over from the legacy
           site's linked badges. */}
-      <ul
-        aria-label="Certifications"
-        className="mx-auto mt-14 flex max-w-3xl flex-wrap items-center justify-center gap-x-16 gap-y-8 border-t border-surface-border pt-10 sm:mt-16 sm:gap-x-20"
-      >
+      <div className="mx-auto mt-14 max-w-3xl border-t border-surface-border pt-10 sm:mt-16">
+        <p className="text-center text-sm font-medium uppercase tracking-wider text-muted sm:text-base">
+          Proudly Certified By
+        </p>
+        <ul
+          aria-label="Certifications"
+          className="mt-8 flex flex-wrap items-center justify-center gap-x-16 gap-y-8 sm:gap-x-20"
+        >
         <li>
           <a
             href="https://www.google.com/partners/agency?id=9659567678"
@@ -127,7 +131,12 @@ export function Partners() {
             />
           </a>
         </li>
-      </ul>
+        </ul>
+        <p className="mx-auto mt-8 max-w-xl text-center text-sm leading-relaxed text-muted">
+          Awarded to agencies that demonstrate proven expertise to deliver
+          strong campaign performance &amp; measurable client growth.
+        </p>
+      </div>
 
       <div className="mx-auto mt-14 flex max-w-2xl items-center justify-center gap-5 border-t border-surface-border pt-10 sm:mt-16">
         {/* eslint-disable-next-line @next/next/no-img-element */}
