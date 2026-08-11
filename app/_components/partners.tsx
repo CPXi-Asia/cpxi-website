@@ -22,6 +22,19 @@ const PLATFORMS = [
   { slug: "linkedin", name: "LinkedIn" },
 ] as const;
 
+// Martech stack partners per Reuben/Wilfred (2026-08-11 review).
+const MARTECH = [
+  { slug: "customerio", name: "Customer.io" },
+  { slug: "segment", name: "Segment" },
+  { slug: "antsomi", name: "Antsomi" },
+  { slug: "meiro", name: "Meiro" },
+  { slug: "mixpanel", name: "Mixpanel" },
+  { slug: "klaviyo", name: "Klaviyo" },
+  { slug: "hubspot", name: "HubSpot" },
+  { slug: "adjust", name: "Adjust" },
+  { slug: "appsflyer", name: "AppsFlyer" },
+] as const;
+
 const logoImgClass =
   "w-auto opacity-70 brightness-[0.55] transition-[opacity,filter] duration-200 hover:opacity-100 hover:brightness-100";
 
@@ -31,12 +44,12 @@ export function Partners() {
       aria-label="Partners and awards"
       className="border-t border-surface-border px-6 py-14 sm:py-16"
     >
-      <p className="mb-10 text-center text-xs font-medium uppercase tracking-wider text-muted">
+      <p className="mb-10 text-center text-sm font-medium uppercase tracking-wider text-muted sm:text-base">
         Partners
       </p>
 
       <ul
-        aria-label="Platform partners"
+        aria-label="Media platform partners"
         className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16"
       >
         {PLATFORMS.map((p) => (
@@ -51,6 +64,69 @@ export function Partners() {
             />
           </li>
         ))}
+      </ul>
+
+      <ul
+        aria-label="Marketing technology partners"
+        className="mx-auto mt-12 flex max-w-5xl flex-wrap items-center justify-center gap-x-10 gap-y-7 sm:mt-14 sm:gap-x-12"
+      >
+        {MARTECH.map((p) => (
+          <li key={p.slug}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/partners/${p.slug}.png`}
+              alt={p.name}
+              decoding="async"
+              loading="lazy"
+              className={`h-5 sm:h-6 ${logoImgClass}`}
+            />
+          </li>
+        ))}
+      </ul>
+
+      {/* Certification badges per Reuben (2026-08-11): Google Partner
+          (rebuilt from the legacy site's official badge art) and Meta
+          Business Partner (Meta's current program branding, from Reuben's
+          supplied image). Verification links carried over from the legacy
+          site's linked badges. */}
+      <ul
+        aria-label="Certifications"
+        className="mx-auto mt-14 flex max-w-3xl flex-wrap items-center justify-center gap-x-16 gap-y-8 border-t border-surface-border pt-10 sm:mt-16 sm:gap-x-20"
+      >
+        <li>
+          <a
+            href="https://www.google.com/partners/agency?id=9659567678"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Verify: Google Partner"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/certifications/google-partner.png"
+              alt="Google Partner"
+              decoding="async"
+              loading="lazy"
+              className={`h-16 sm:h-20 ${logoImgClass}`}
+            />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://business.facebook.com/business/partner-directory/search?solution_type=campaign_management&id=731258404104975&section=overview"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Verify: Meta Business Partner"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/certifications/meta-business-partner.png"
+              alt="Meta Business Partner"
+              decoding="async"
+              loading="lazy"
+              className={`h-12 sm:h-14 ${logoImgClass}`}
+            />
+          </a>
+        </li>
       </ul>
 
       <div className="mx-auto mt-14 flex max-w-2xl items-center justify-center gap-5 border-t border-surface-border pt-10 sm:mt-16">
