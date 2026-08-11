@@ -51,7 +51,7 @@ export function Contact() {
         </div>
       </div>
 
-      <footer className="mx-auto mt-24 flex max-w-7xl flex-col items-start justify-between gap-3 border-t border-surface-border pt-8 text-xs text-muted sm:flex-row sm:items-center">
+      <footer className="mx-auto mt-24 max-w-7xl border-t border-surface-border pt-8 text-center text-xs text-muted">
         <p>© {new Date().getFullYear()} CPXi Asia. All rights reserved.</p>
       </footer>
     </section>
