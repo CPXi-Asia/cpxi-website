@@ -103,6 +103,7 @@ export function Partners() {
             target="_blank"
             rel="noopener noreferrer"
             title="Verify: Google Partner"
+            className="group relative block"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -110,7 +111,16 @@ export function Partners() {
               alt="Google Partner"
               decoding="async"
               loading="lazy"
-              className={`h-16 sm:h-20 ${logoImgClass}`}
+              className="h-16 w-auto opacity-70 brightness-[0.55] transition-[opacity,filter] duration-200 group-hover:opacity-0 sm:h-20"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/certifications/color/google-partner.png"
+              alt=""
+              aria-hidden
+              decoding="async"
+              loading="lazy"
+              className="absolute inset-0 m-auto h-16 w-auto opacity-0 transition-opacity duration-200 group-hover:opacity-100 sm:h-20"
             />
           </a>
         </li>
@@ -120,6 +130,7 @@ export function Partners() {
             target="_blank"
             rel="noopener noreferrer"
             title="Verify: Meta Business Partner"
+            className="group relative block"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -127,7 +138,16 @@ export function Partners() {
               alt="Meta Business Partner"
               decoding="async"
               loading="lazy"
-              className={`h-12 sm:h-14 ${logoImgClass}`}
+              className="h-12 w-auto opacity-70 brightness-[0.55] transition-[opacity,filter] duration-200 group-hover:opacity-0 sm:h-14"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/certifications/color/meta-business-partner.png"
+              alt=""
+              aria-hidden
+              decoding="async"
+              loading="lazy"
+              className="absolute inset-0 m-auto h-12 w-auto opacity-0 transition-opacity duration-200 group-hover:opacity-100 sm:h-14"
             />
           </a>
         </li>
