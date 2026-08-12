@@ -18,21 +18,18 @@ const PLATFORMS = [
   { slug: "google", name: "Google" },
   { slug: "meta", name: "Meta" },
   { slug: "tiktok", name: "TikTok" },
-  { slug: "spotify", name: "Spotify" },
-  { slug: "linkedin", name: "LinkedIn" },
 ] as const;
 
-// Martech stack partners per Reuben/Wilfred (2026-08-11 review).
+// Martech stack partners per Reuben/Wilfred (2026-08-11 review; Antsomi +
+// AppsFlyer removed 2026-08-12).
 const MARTECH = [
   { slug: "customerio", name: "Customer.io" },
   { slug: "segment", name: "Segment" },
-  { slug: "antsomi", name: "Antsomi" },
   { slug: "meiro", name: "Meiro" },
   { slug: "mixpanel", name: "Mixpanel" },
   { slug: "klaviyo", name: "Klaviyo" },
   { slug: "hubspot", name: "HubSpot" },
   { slug: "adjust", name: "Adjust" },
-  { slug: "appsflyer", name: "AppsFlyer" },
 ] as const;
 
 const logoImgClass =
@@ -99,7 +96,7 @@ export function Partners() {
         >
         <li>
           <a
-            href="https://www.google.com/partners/agency?id=9659567678"
+            href="https://partnersdirectory.withgoogle.com/partners/7322510971"
             target="_blank"
             rel="noopener noreferrer"
             title="Verify: Google Partner"
@@ -126,7 +123,7 @@ export function Partners() {
         </li>
         <li>
           <a
-            href="https://business.facebook.com/business/partner-directory/search?solution_type=campaign_management&id=731258404104975&section=overview"
+            href="https://www.facebook.com/fbp"
             target="_blank"
             rel="noopener noreferrer"
             title="Verify: Meta Business Partner"
