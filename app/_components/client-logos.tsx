@@ -1,4 +1,4 @@
-// 29 client logos, two assets each:
+// 34 client logos, two assets each:
 //  - /clients/<slug>.png        white silhouette (rest state, dimmed)
 //  - /clients/color/<slug>.png  dark-adapted full-color version (hover state):
 //    official brand art with neutral-dark pixels flipped to white (the same
@@ -28,6 +28,7 @@ const LOGOS: ReadonlyArray<{ slug: string; color?: boolean; tall?: boolean }> = 
   { slug: "sc-global", tall: true },
   { slug: "wearnes", color: false, tall: true },
   { slug: "hl-bank" },
+  { slug: "starbucks" },
   { slug: "mcl-land", color: false },
   { slug: "puma", color: false },
   { slug: "guocoland", color: false },
@@ -35,6 +36,7 @@ const LOGOS: ReadonlyArray<{ slug: string; color?: boolean; tall?: boolean }> = 
   { slug: "bank-of-china" },
   { slug: "best-denki" },
   { slug: "skechers" },
+  { slug: "mount-alvernia", tall: true },
   { slug: "tsubaki" },
   { slug: "starlux", color: false },
   { slug: "grohe", tall: true },
