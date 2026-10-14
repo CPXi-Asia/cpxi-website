@@ -14,7 +14,7 @@
 // https://awards.marketing-interactive.com/agency-of-the-year-sg/2025-winners/
 // TODO(Reuben): swap in the official 2025 winner badge if we have the kit.
 
-const PLATFORMS = [
+export const PLATFORMS = [
   { slug: "google", name: "Google" },
   { slug: "meta", name: "Meta" },
   { slug: "tiktok", name: "TikTok" },
@@ -22,7 +22,7 @@ const PLATFORMS = [
 
 // Martech stack partners per Reuben/Wilfred (2026-08-11 review; Antsomi +
 // AppsFlyer removed 2026-08-12).
-const MARTECH = [
+export const MARTECH = [
   { slug: "customerio", name: "Customer.io" },
   { slug: "segment", name: "Segment" },
   { slug: "meiro", name: "Meiro" },

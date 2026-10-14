@@ -1,13 +1,13 @@
 // The 7 service lines and Growth/Technology split per CPMG-Positioning-v3.pdf
 // (Reuben's CPMG folder) — the same doc behind the navy/teal practice split.
-const GROWTH = [
+export const GROWTH = [
   "Performance Marketing",
   "Search & Social",
   "Content & Creative",
   "Brand & Identity",
 ] as const;
 
-const TECHNOLOGY = [
+export const TECHNOLOGY = [
   "Marketing Technology",
   "Web & Product",
   "Data & Intelligence",

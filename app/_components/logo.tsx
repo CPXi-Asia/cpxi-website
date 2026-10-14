@@ -1,7 +1,16 @@
 // CPXi Asia logo — brand blue mark + wordmark. Mark stays brand-blue;
 // wordmark uses currentColor so it inherits text color from CSS (white on
 // our dark background, easy to recolor later if needed).
-export function Logo({ className }: { className?: string }) {
+// `width`/`height` are for next/og (Satori), which ignores CSS classes.
+export function Logo({
+  className,
+  width,
+  height,
+}: {
+  className?: string;
+  width?: number;
+  height?: number;
+}) {
   return (
     <svg
       viewBox="0 0 128.6 34"
@@ -9,6 +18,8 @@ export function Logo({ className }: { className?: string }) {
       role="img"
       aria-label="CPXi Asia"
       className={className}
+      width={width}
+      height={height}
     >
       <g fill="#00B2E6">
         <path d="M23.6,15.8L22,26c-0.1,0.8-0.5,1.5-1.1,1.9s-1.4,0.5-2.1,0.3l-1.1-0.3l5.9-21.7c0.5,0,1-0.4,1.1-1c0.2-0.7-0.2-1.4-0.9-1.6c-0.7-0.2-1.4,0.2-1.6,0.9c-0.1,0.5,0.1,1.1,0.5,1.4l-5.9,21.7L14.5,27l4.9-18.1c0.5,0,1-0.4,1.2-1c0-0.6-0.4-1.4-1.1-1.6c-0.7-0.1-1.4,0.3-1.6,1c-0.1,0.5,0.1,1.1,0.5,1.4l-4.9,18.1L11,26.1l6.2-22.9c0.5,0,1-0.4,1.1-1c0.2-0.7-0.2-1.4-0.9-1.6S16,0.8,15.8,1.5c-0.1,0.5,0.1,1.1,0.5,1.4l-6.2,23L6.9,25c-0.8-0.2-1.4-0.7-1.7-1.4s-0.4-1.5-0.1-2.2L9.8,8.9c0.3-0.8,0.8-1.4,1.3-1.8c0.6-0.4,1.2-0.4,1.8-0.4l0.5-1.6c-1.1-0.4-3.1-0.2-4,0.2c-1,0.4-1.8,1.3-2.2,2.4l-6.4,16l0,0c-0.6,2.1,0.8,4.3,3.1,4.9l15.9,4.3c2.3,0.6,4.6-0.6,5.2-2.6l0,0l2.3-15.1L23.6,15.8z" />

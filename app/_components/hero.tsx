@@ -1,4 +1,5 @@
 import { Logo } from "./logo";
+import { FOUNDING_YEAR } from "../_lib/site";
 
 export function Hero() {
   return (
@@ -16,8 +17,8 @@ export function Hero() {
 
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
           We are an independent Singapore-headquartered agency, with offices
-          in Indonesia and Malaysia, and with over 14 years of deep operating
-          experience in the region.
+          in Indonesia and Malaysia, operating across the region since{" "}
+          {FOUNDING_YEAR}.
         </p>
 
         <a
