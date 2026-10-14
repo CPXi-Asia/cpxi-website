@@ -11,6 +11,7 @@
 // Order interleaves categories so no row reads as all-finance.
 const LOGOS: ReadonlyArray<{ slug: string; color?: boolean; tall?: boolean }> = [
   { slug: "tiger-brokers" },
+  { slug: "starbucks" },
   { slug: "canon" },
   { slug: "ho-bee-land" },
   { slug: "volvo" },
@@ -28,7 +29,6 @@ const LOGOS: ReadonlyArray<{ slug: string; color?: boolean; tall?: boolean }> = 
   { slug: "sc-global", tall: true },
   { slug: "wearnes", color: false, tall: true },
   { slug: "hl-bank" },
-  { slug: "starbucks" },
   { slug: "mcl-land", color: false },
   { slug: "puma", color: false },
   { slug: "guocoland", color: false },
