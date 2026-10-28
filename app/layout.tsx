@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { SiteFooter } from "./_components/site-footer";
+import { SiteHeader } from "./_components/site-header";
 import { StructuredData } from "./_components/structured-data";
 import { DESCRIPTION, SITE_NAME, SITE_URL, TAGLINE } from "./_lib/site";
 import "./globals.css";
@@ -43,7 +45,9 @@ export default function RootLayout({
       <GoogleTagManager gtmId="GTM-WKHW43" />
       <body>
         <StructuredData />
+        <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
