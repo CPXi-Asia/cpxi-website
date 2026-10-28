@@ -20,8 +20,9 @@ export const PLATFORMS = [
   { slug: "tiktok", name: "TikTok" },
 ] as const;
 
-// Martech stack partners per Reuben/Wilfred (2026-08-11 review; Antsomi +
-// AppsFlyer removed 2026-08-12).
+// Martech stack per Reuben/Wilfred (2026-08-11 review; Antsomi + AppsFlyer
+// removed 2026-08-12). Labelled "platforms we work with"; formal
+// certifications are listed in their own block below.
 export const MARTECH = [
   { slug: "customerio", name: "Customer.io" },
   { slug: "segment", name: "Segment" },
@@ -38,15 +39,15 @@ const logoImgClass =
 export function Partners() {
   return (
     <section
-      aria-label="Partners and awards"
+      aria-label="Platforms, certifications and awards"
       className="border-t border-surface-border px-6 py-14 sm:py-16"
     >
       <p className="mb-10 text-center text-sm font-medium uppercase tracking-wider text-muted sm:text-base">
-        Partners
+        Platforms we work with
       </p>
 
       <ul
-        aria-label="Media platform partners"
+        aria-label="Media platforms"
         className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16"
       >
         {PLATFORMS.map((p) => (
@@ -64,7 +65,7 @@ export function Partners() {
       </ul>
 
       <ul
-        aria-label="Marketing technology partners"
+        aria-label="Marketing technology platforms"
         className="mx-auto mt-12 flex max-w-5xl flex-wrap items-center justify-center gap-x-10 gap-y-7 sm:mt-14 sm:gap-x-12"
       >
         {MARTECH.map((p) => (
