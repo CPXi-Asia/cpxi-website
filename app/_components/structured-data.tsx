@@ -3,13 +3,15 @@ import {
   CONTACT_EMAIL,
   DESCRIPTION,
   FOUNDING_YEAR,
+  LINKEDIN_URL,
+  POSTAL_CODE,
   SITE_NAME,
   SITE_URL,
+  STREET_ADDRESS,
 } from "../_lib/site";
 
 // schema.org Organization + WebSite. Google uses this for the knowledge panel;
 // AI engines use it as the machine-readable "who is this company" record.
-// Street addresses are deliberately omitted until confirmed current.
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -17,11 +19,27 @@ const jsonLd = {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
+      legalName: "CPXI Singapore Pte. Ltd.",
       url: SITE_URL,
       logo: `${SITE_URL}/apple-touch-icon.png`,
       description: DESCRIPTION,
       email: CONTACT_EMAIL,
-      foundingDate: String(FOUNDING_YEAR),      address: { "@type": "PostalAddress", addressCountry: "SG" },
+      foundingDate: String(FOUNDING_YEAR),
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: STREET_ADDRESS,
+        postalCode: POSTAL_CODE,
+        addressLocality: "Singapore",
+        addressCountry: "SG",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: CONTACT_EMAIL,
+        areaServed: ["SG", "ID", "MY"],
+        availableLanguage: ["en"],
+      },
+      sameAs: [LINKEDIN_URL],
       areaServed: ["Singapore", "Indonesia", "Malaysia", "Asia"],
       knowsAbout: [...GROWTH, ...TECHNOLOGY],
       award:
