@@ -25,9 +25,9 @@ const nextConfig: NextConfig = {
         destination: `/case-studies/${slug}`,
         permanent: true,
       })),
-      // Other legacy URLs still in Google's index (/page/career,
-      // /page/privacy, other /read/ posts) have no equivalents yet, so send
-      // them home instead of 404ing.
+      { source: "/page/privacy", destination: "/privacy", permanent: true },
+      // Other legacy URLs still in Google's index (/page/career, other /read/
+      // posts) have no equivalents yet, so send them home instead of 404ing.
       { source: "/page/:path*", destination: "/", permanent: true },
       { source: "/read/:path*", destination: "/", permanent: true },
     ];
