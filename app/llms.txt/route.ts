@@ -30,7 +30,7 @@ ${LOGOS.map((l) => l.name).join(", ")}.
 
 - Media platforms: ${PLATFORMS.map((p) => p.name).join(", ")}
 - Marketing technology: ${MARTECH.map((p) => p.name).join(", ")}
-- Certified Google Partner and Meta Business Partner
+- Certified Google Partner, Meta Business Partner and TikTok Marketing Partner
 
 ## Awards
 
