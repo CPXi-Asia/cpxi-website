@@ -13,9 +13,21 @@ const nextConfig: NextConfig = {
         destination: "https://www.cpxi-asia.com/:path*",
         permanent: true,
       })),
-      // Legacy CodeIgniter URLs still in Google's index (/page/career,
-      // /page/privacy, /read/<id>/<slug> blog posts). The one-pager has no
-      // equivalents yet, so send them home instead of 404ing.
+      // Legacy CodeIgniter case studies (/read/<id>/<slug>, also live on
+      // sg.cpxi-asia.com) now have republished pages; send each to its own.
+      ...Object.entries({
+        "1": "fmcg-retailer-ecommerce-growth",
+        "2": "luxury-retailer-ecommerce-roas",
+        "3": "tertiary-institution-student-recruitment",
+        "4": "property-developer-overseas-leads",
+      }).map(([id, slug]) => ({
+        source: `/read/${id}/:rest*`,
+        destination: `/case-studies/${slug}`,
+        permanent: true,
+      })),
+      // Other legacy URLs still in Google's index (/page/career,
+      // /page/privacy, other /read/ posts) have no equivalents yet, so send
+      // them home instead of 404ing.
       { source: "/page/:path*", destination: "/", permanent: true },
       { source: "/read/:path*", destination: "/", permanent: true },
     ];

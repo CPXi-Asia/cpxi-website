@@ -1,13 +1,8 @@
-import { Logo } from "./logo";
 import { FOUNDING_YEAR } from "../_lib/site";
 
 export function Hero() {
   return (
-    <section className="relative px-6 pt-8 sm:px-10 lg:px-16">
-      <header>
-        <Logo className="h-8 w-auto sm:h-10 text-foreground" />
-      </header>
-
+    <section className="relative px-6 sm:px-10 lg:px-16">
       {/* Centered on the page axis to match the logo bands below. */}
       <div className="mx-auto flex w-full max-w-4xl flex-col items-center py-14 text-center sm:py-20">
         <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
