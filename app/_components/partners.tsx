@@ -4,9 +4,8 @@
 // Platform wordmarks sourced from Wikimedia Commons official brand SVGs and
 // baked to white-on-transparent (same treatment as /clients logos).
 // TODO(Reuben): confirm the platform list. Xiaohongshu was skipped (only a
-// square app-icon exists as clean art). If any of these carry an official
-// partner-program tier (e.g. TikTok Marketing Partner), send the badge art
-// and it can replace the plain wordmark.
+// square app-icon exists as clean art). Official partner-program tiers go in
+// the certifications block below (TikTok Marketing Partner added 2026-11-13).
 //
 // Award lockup uses the Marketing-Interactive "M" cube mark (cropped from the
 // organiser's transparent event logo, year-free) with the award facts set in
@@ -86,7 +85,9 @@ export function Partners() {
           (rebuilt from the legacy site's official badge art) and Meta
           Business Partner (Meta's current program branding, from Reuben's
           supplied image). Verification links carried over from the legacy
-          site's linked badges. */}
+          site's linked badges. TikTok Marketing Partner added 2026-11-13
+          from Reuben's supplied lockup (dark-background version); no public
+          directory link yet, so it isn't linked. */}
       <div className="mx-auto mt-14 max-w-3xl border-t border-surface-border pt-10 sm:mt-16">
         <p className="text-center text-sm font-medium uppercase tracking-wider text-muted sm:text-base">
           Proudly Certified By
@@ -148,6 +149,27 @@ export function Partners() {
               className="absolute inset-0 m-auto h-12 w-auto opacity-0 transition-opacity duration-200 group-hover:opacity-100 sm:h-14"
             />
           </a>
+        </li>
+        <li>
+          <div className="group relative">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/certifications/tiktok-marketing-partner.png"
+              alt="TikTok Marketing Partner"
+              decoding="async"
+              loading="lazy"
+              className="h-10 w-auto opacity-70 brightness-[0.55] transition-[opacity,filter] duration-200 group-hover:opacity-0 sm:h-12"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/certifications/color/tiktok-marketing-partner.png"
+              alt=""
+              aria-hidden
+              decoding="async"
+              loading="lazy"
+              className="absolute inset-0 m-auto h-10 w-auto opacity-0 transition-opacity duration-200 group-hover:opacity-100 sm:h-12"
+            />
+          </div>
         </li>
         </ul>
         <p className="mx-auto mt-8 max-w-xl text-center text-sm leading-relaxed text-muted">

@@ -76,7 +76,7 @@ ${FAQ_GROUPS.flatMap((g) => g.items.map((i) => `**${i.q}**\n${i.a}`)).join("\n\n
 
 ## Certifications
 
-- Certified Google Partner and Meta Business Partner
+- Certified Google Partner, Meta Business Partner and TikTok Marketing Partner
 
 ## Awards
 

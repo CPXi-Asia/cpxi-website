@@ -8,7 +8,7 @@ export const AT_A_GLANCE = [
   { term: "Founded", value: String(FOUNDING_YEAR) },
   { term: "Headquarters", value: "Singapore" },
   { term: "Offices", value: "Singapore, Indonesia, Malaysia" },
-  { term: "Certified", value: "Google Partner, Meta Business Partner" },
+  { term: "Certified", value: "Google Partner, Meta Business Partner, TikTok Marketing Partner" },
 ] as const;
 
 export function Facts() {
