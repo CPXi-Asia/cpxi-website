@@ -85,8 +85,8 @@ export function Partners() {
           Business Partner (Meta's current program branding, from Reuben's
           supplied image). Verification links carried over from the legacy
           site's linked badges. TikTok Marketing Partner added 2026-11-13
-          from Reuben's supplied lockup (dark-background version); no public
-          directory link yet, so it isn't linked. */}
+          from Reuben's supplied lockup (dark-background version), linked to
+          our TikTok Marketing Partners directory profile. */}
       <div className="mx-auto mt-14 max-w-3xl border-t border-surface-border pt-10 sm:mt-16">
         <p className="text-center text-sm font-medium uppercase tracking-wider text-muted sm:text-base">
           Proudly Certified By
@@ -150,7 +150,13 @@ export function Partners() {
           </a>
         </li>
         <li>
-          <div className="group relative">
+          <a
+            href="https://partners.tiktok.com/partner-details/7707223331488923700/pc/en"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Verify: TikTok Marketing Partner"
+            className="group relative block"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/certifications/tiktok-marketing-partner.png"
@@ -168,7 +174,7 @@ export function Partners() {
               loading="lazy"
               className="absolute inset-0 m-auto h-10 w-auto opacity-0 transition-opacity duration-200 group-hover:opacity-100 sm:h-12"
             />
-          </div>
+          </a>
         </li>
         </ul>
         <p className="mx-auto mt-8 max-w-xl text-center text-sm leading-relaxed text-muted">
