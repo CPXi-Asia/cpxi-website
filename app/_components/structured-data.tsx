@@ -24,6 +24,7 @@ const jsonLd = {
       hasCredential: [
         { "@type": "EducationalOccupationalCredential", name: "Google Partner" },
         { "@type": "EducationalOccupationalCredential", name: "Meta Business Partner" },
+        { "@type": "EducationalOccupationalCredential", name: "TikTok Marketing Partner" },
       ],
     },
     {
