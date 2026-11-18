@@ -62,13 +62,14 @@ Previews sit behind Vercel Authentication; the review link adds a protection-byp
 ## Open
 
 - [x] **DNS cutover** — DONE 2026-08-09 via cPanel API (zone serial 2026081000). Contact form verified end-to-end on the live domain (`delivered: true` to hello@cpxi-asia.com).
-- [ ] **Analytics** — GTM `GTM-WKHW43` (reused from the legacy site) is live since 2026-08-11; conversion mapping inside GTM is still unfinished. Google Search Console verification not visible (no DNS/meta token) — John checking.
+- [x] **Analytics** — DONE 2026-08-09: the legacy GTM container `GTM-WKHW43` is reused in `app/layout.tsx` (Google Ads `AW-710811234` conversions are wired inside it), and the contact form sends a `contact_form_submit` GTM event. Hotjar was not carried over.
+- [ ] **Google Search Console** — verification not visible (no DNS/meta token) — John checking.
 - [ ] **Legacy URL 404s** — old subpages (`/page/career`, `/page/privacy`, blog) 404 on the one-pager. Add redirects or a minimal privacy page if anything links to them.
 - [ ] **Reuben confirmations** — platform partner list (TikTok/Spotify tiers? Xiaohongshu?), official AOTY 2025 winner badge kit, GuocoLand vector art (current color source too low-res, white-only for now).
 
 ## Environment variables
 
-None yet. When added, manage via:
+`SMTP_USER` and `SMTP_PASS` (Gmail SMTP for the contact form, read in `app/api/contact/route.ts`). Without them the form does not deliver. Manage via:
 
 ```bash
 vercel env add VARNAME production
