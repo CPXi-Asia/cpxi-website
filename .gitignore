@@ -40,3 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .gstack/
+
+# Case-study drafts pending client/naming review stay out of git (this repo is
+# public); the registry is generated at dev/build time from files present.
+/app/_content/case-studies/drafts/
+/app/_content/case-studies/registry.generated.ts

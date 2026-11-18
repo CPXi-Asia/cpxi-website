@@ -1,5 +1,11 @@
 import { GROWTH, TECHNOLOGY } from "./services";
-import { CONTACT_EMAIL, DESCRIPTION, FOUNDING_YEAR, SITE_NAME, SITE_URL } from "../_lib/site";
+import {
+  CONTACT_EMAIL,
+  DESCRIPTION,
+  FOUNDING_YEAR,
+  SITE_NAME,
+  SITE_URL,
+} from "../_lib/site";
 
 // schema.org Organization + WebSite. Google uses this for the knowledge panel;
 // AI engines use it as the machine-readable "who is this company" record.
@@ -15,8 +21,7 @@ const jsonLd = {
       logo: `${SITE_URL}/apple-touch-icon.png`,
       description: DESCRIPTION,
       email: CONTACT_EMAIL,
-      foundingDate: String(FOUNDING_YEAR),
-      address: { "@type": "PostalAddress", addressCountry: "SG" },
+      foundingDate: String(FOUNDING_YEAR),      address: { "@type": "PostalAddress", addressCountry: "SG" },
       areaServed: ["Singapore", "Indonesia", "Malaysia", "Asia"],
       knowsAbout: [...GROWTH, ...TECHNOLOGY],
       award:
