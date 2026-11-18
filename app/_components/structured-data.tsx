@@ -41,7 +41,7 @@ const jsonLd = {
       },
       sameAs: [LINKEDIN_URL],
       areaServed: ["Singapore", "Indonesia", "Malaysia", "Asia"],
-      knowsAbout: [...GROWTH, ...TECHNOLOGY],
+      knowsAbout: [...GROWTH, ...TECHNOLOGY, "Search engine optimisation (SEO)", "Generative engine optimisation (GEO)"],
       award:
         "Market Research Agency of the Year (Bronze), Marketing-Interactive Agency of the Year Awards 2025, Singapore",
       hasCredential: [

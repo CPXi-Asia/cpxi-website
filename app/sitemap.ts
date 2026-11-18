@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { CASE_STUDIES, caseStudyPath } from "./_lib/case-studies";
+import { INSIGHTS, insightPath } from "./_lib/insights";
 import { SERVICE_PAGES, servicePath } from "./_lib/services";
 import { SITE_URL } from "./_lib/site";
 
@@ -13,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
-    { url: `${SITE_URL}/services`, lastModified: new Date("2026-10-30"), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/services`, lastModified: new Date("2026-11-05"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE_URL}/privacy`, lastModified: new Date("2026-10-30"), changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/faq`, lastModified: new Date("2026-10-22"), changeFrequency: "monthly", priority: 0.7 },
     ...SERVICE_PAGES.map((s) => ({
@@ -21,6 +22,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(s.updated),
       changeFrequency: "monthly" as const,
       priority: 0.9,
+    })),
+    {
+      url: `${SITE_URL}/insights`,
+      lastModified: new Date(INSIGHTS.map((i) => i.updated).sort().at(-1) ?? "2026-11-05"),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    ...INSIGHTS.map((i) => ({
+      url: `${SITE_URL}${insightPath(i.slug)}`,
+      lastModified: new Date(i.updated),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
     ...CASE_STUDIES.map((c) => ({
       url: `${SITE_URL}${caseStudyPath(c.slug)}`,

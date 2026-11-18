@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { CaseStudyCard } from "../../_components/case-study-card";
 import { JsonLd } from "../../_components/json-ld";
 import { getCaseStudy } from "../../_lib/case-studies";
+import { insightPath, insightsForService } from "../../_lib/insights";
 import { SERVICE_PAGES, getServicePage, servicePath } from "../../_lib/services";
 import { SITE_URL } from "../../_lib/site";
 
@@ -46,6 +47,7 @@ export default async function ServicePageRoute(props: PageProps<"/services/[slug
     .filter((c): c is NonNullable<typeof c> => Boolean(c))
     // Lists name drafts first and published fallbacks last; show at most 6.
     .slice(0, 6);
+  const reading = insightsForService(page.slug);
 
   return (
     <main className="px-6 pb-24 pt-10 sm:px-10 sm:pt-14 lg:px-16">
@@ -184,6 +186,23 @@ export default async function ServicePageRoute(props: PageProps<"/services/[slug
             See all frequently asked questions →
           </Link>
         </section>
+
+        {reading.length > 0 && (
+          <section aria-labelledby="reading-heading" className="mt-16">
+            <h2 id="reading-heading" className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+              Further reading
+            </h2>
+            <ul className="mt-6 space-y-3">
+              {reading.map((i) => (
+                <li key={i.slug}>
+                  <Link href={insightPath(i.slug)} className="text-lg font-medium text-accent hover:text-accent-hover">
+                    {i.title} →
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <div className="mt-16 rounded-xl border border-surface-border bg-surface p-8 text-center">
           <p className="text-xl font-semibold text-foreground">

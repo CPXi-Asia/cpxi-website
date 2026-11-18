@@ -6,7 +6,7 @@ import { SERVICE_PAGES, servicePageFor, servicePath } from "../_lib/services";
 import { DEFINITION, SITE_NAME, SITE_URL } from "../_lib/site";
 
 const DESCRIPTION =
-  "Performance marketing, programmatic and DOOH, and marketing technology services from CPXi Asia, for brands in Singapore and across Asia.";
+  "Performance marketing, programmatic and DOOH, SEO and AI search, and marketing technology services from CPXi Asia, for brands in Singapore and across Asia.";
 
 export const metadata: Metadata = {
   title: `Services | ${SITE_NAME}`,
@@ -64,7 +64,7 @@ export default function ServicesPage() {
           <h2 id="specialist-heading" className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Specialist services in Singapore
           </h2>
-          <ul className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <ul className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
             {SERVICE_PAGES.map((s) => (
               <li key={s.slug} className="h-full">
                 <Link
