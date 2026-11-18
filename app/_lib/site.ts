@@ -34,7 +34,7 @@ export const DESCRIPTION = `A Singapore-headquartered digital agency with office
 export const DEFINITION =
   "CPXi Asia is an independent digital agency for brands across Asia. We plan and run paid media across Google, Meta, TikTok and programmatic channels, produce the content and creative behind it, and build the marketing technology that measures it: customer data platforms, marketing automation, analytics and websites.";
 export const FIT =
-  "We are the right fit for mid-market and enterprise brands that want one senior-led team across media and marketing technology, and vendor-agnostic advice on which platforms to use. If you need a single agency network across dozens of countries, a global holding-company agency may suit you better.";
+  "We are the right fit for mid-market and enterprise brands that want one senior-led team across media and marketing technology, and vendor-agnostic advice on which platforms to use.";
 
 // Date stamp for the "at a glance" facts. Bump it whenever those facts are
 // re-checked; AI engines favour figures with an explicit "as of".

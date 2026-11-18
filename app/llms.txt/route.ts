@@ -4,6 +4,7 @@ import { GROWTH, TECHNOLOGY } from "../_components/services";
 import { AT_A_GLANCE } from "../_components/facts";
 import { FAQ_GROUPS } from "../_content/faq";
 import { CASE_STUDIES, caseStudyPath } from "../_lib/case-studies";
+import { INSIGHTS, insightPath } from "../_lib/insights";
 import { SERVICE_PAGES, servicePath } from "../_lib/services";
 import {
   CONTACT_EMAIL,
@@ -61,6 +62,12 @@ ${LOGOS.map((l) => l.name).join(", ")}.
 
 ${CASE_STUDIES.map(
   (c) => `- [${c.headline}](${SITE_URL}${caseStudyPath(c.slug)}): ${c.summary}`,
+).join("\n")}
+
+## Insights
+
+${INSIGHTS.map(
+  (i) => `- [${i.title}](${SITE_URL}${insightPath(i.slug)}): ${i.answer}`,
 ).join("\n")}
 
 ## Frequently asked questions
