@@ -75,7 +75,8 @@ export default async function ServicePageRoute(props: PageProps<"/services/[slug
               "@type": "BreadcrumbList",
               itemListElement: [
                 { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-                { "@type": "ListItem", position: 2, name: page.service, item: url },
+                { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+                { "@type": "ListItem", position: 3, name: page.service, item: url },
               ],
             },
           ],
@@ -87,6 +88,10 @@ export default async function ServicePageRoute(props: PageProps<"/services/[slug
           <ol className="flex flex-wrap items-center gap-2">
             <li>
               <Link href="/" className="hover:text-foreground">Home</Link>
+            </li>
+            <li aria-hidden>/</li>
+            <li>
+              <Link href="/services" className="hover:text-foreground">Services</Link>
             </li>
             <li aria-hidden>/</li>
             <li aria-current="page" className="text-foreground">{page.service}</li>

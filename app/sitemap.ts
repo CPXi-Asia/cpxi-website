@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    { url: `${SITE_URL}/services`, lastModified: new Date("2026-10-30"), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/privacy`, lastModified: new Date("2026-10-30"), changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/faq`, lastModified: new Date("2026-10-22"), changeFrequency: "monthly", priority: 0.7 },
     ...SERVICE_PAGES.map((s) => ({
       url: `${SITE_URL}${servicePath(s.slug)}`,

@@ -12,8 +12,14 @@ export function SiteFooter() {
           <Link href="/case-studies" className="transition-colors hover:text-foreground">
             Case studies
           </Link>
+          <Link href="/services" className="transition-colors hover:text-foreground">
+            Services
+          </Link>
           <Link href="/faq" className="transition-colors hover:text-foreground">
             FAQ
+          </Link>
+          <Link href="/privacy" className="transition-colors hover:text-foreground">
+            Privacy
           </Link>
           <Link href="/#contact" className="transition-colors hover:text-foreground">
             Contact

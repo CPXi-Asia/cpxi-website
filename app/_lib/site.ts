@@ -7,7 +7,12 @@ export const CONTACT_EMAIL = "hello@cpxi-asia.com";
 export const TAGLINE = "Performance marketing and technology for brands across Asia";
 // Current until the office move in January 2027; update here, in the Google
 // Business Profile and on directory listings on the same day.
-export const ADDRESS = "60 Paya Lebar Road, #08-20 Paya Lebar Square, Singapore 409051";
+export const STREET_ADDRESS = "60 Paya Lebar Road, #08-20 Paya Lebar Square";
+export const POSTAL_CODE = "409051";
+export const ADDRESS = `${STREET_ADDRESS}, Singapore ${POSTAL_CODE}`;
+// Official profiles of the same company (schema.org sameAs). Add others only
+// once their details match this site.
+export const LINKEDIN_URL = "https://www.linkedin.com/company/cpxi-asia/";
 
 // Converged from public sources (2026-10-14, re-checked 2026-10-21): Jakarta
 // office launched early 2014 (ACN/Antara press release, 5 May 2014), CPXI
